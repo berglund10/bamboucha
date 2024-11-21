@@ -1,13 +1,12 @@
 import { Deadline } from "@/features/team-selection/ui/deadline"
-import { PlayerBoard } from "@/features/team-selection/ui/playerboard"
+import { PlayerPicker } from "@/features/team-selection/ui/player-picker"
 
 export default function Page() {
     return (
         <>
         <Deadline/>
-        <PlayerBoard/>
-        <div>Select eleven button</div>
-
+        <PlayerPicker/>
+{/*         <div>Select eleven button</div> */}
         </>
     )
 }
