@@ -1,14 +1,16 @@
+import { teamSelectionService } from "@/features/team-selection/instance";
 import { Deadline } from "@/features/team-selection/ui/deadline"
-import { PlayerPicker } from "@/features/team-selection/ui/player-picker"
 import { SelectCard } from "@/features/team-selection/ui/select-card"
 
-export default function Page() {
+export default async function Page() {
+    const players = await teamSelectionService.fetchPlayersByTeam();
+    
     return (
         <>
         <Deadline/>
         {/* <PlayerPicker/> */}
 {/*         <div>Select eleven button</div> */}
-        <SelectCard/>
+        <SelectCard players={players}/>
         </>
     )
 }
