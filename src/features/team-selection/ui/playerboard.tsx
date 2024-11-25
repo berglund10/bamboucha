@@ -105,7 +105,7 @@ export function PlayerBoard({ goalkeepers, defenders, midfielders, forwards }: P
   };
 
   return (
-    <>
+    <div>
       <p>Goalkeepers</p>
       {goalkeepers.map((goalkeeper) => (
         <div
@@ -168,12 +168,12 @@ export function PlayerBoard({ goalkeepers, defenders, midfielders, forwards }: P
       <p>Selected Midfielders: {selectedMidfielders.map(m => m.name).join(", ")}</p>
       <p>Selected Forwards: {selectedForwards.map(f => f.name).join(", ")}</p>
 
-      <button className="pl-96"
+{/*       <button
         onClick={() => console.log(startXIData)} 
         disabled={!isStartXIValid()}
       >
         Spara Startelva
-      </button>
-    </>
+      </button> */}
+    </div>
   );
 }

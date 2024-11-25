@@ -14,7 +14,7 @@ export function OptionList() {
 
     return (
         <>
-                <label htmlFor="filter">Filter by position:</label>
+                <label className="mb-4 mt-4" htmlFor="filter">Select players</label>
                 <select className="select select-bordered w-full max-w-xs" id="filter" value={filter} onChange={handleFilterChange}>
                     <optgroup label="Global">
                         <option value="all">All Players</option>
