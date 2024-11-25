@@ -75,14 +75,12 @@ export function PlayerBoard({ players }: Props) {
       alert("Must select exactly 11 players.");
       return;
     }
-
-    console.log("Starting Eleven:", filledSlots);
+    
     redirect("/match")
   };
 
   return (
     <div className="flex flex-row border border-l-rose-700">
-      {/* Startelva */}
       <div className="flex flex-col border-lime-400 w-1/2 p-4">
         <h3 className="text-lg font-bold mb-4">Starting Eleven</h3>
         <div className="grid grid-cols-1 gap-2">

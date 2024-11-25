@@ -1,3 +1,5 @@
 export function Deadline() {
-  return <>Sat, 23 nov, 15:00</>;
+  return <>
+  <p className="text-center">Sat, 23 nov, 15:00</p>
+  </>;
 }
