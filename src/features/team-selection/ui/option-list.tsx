@@ -14,9 +14,10 @@ type Player = {
   
   type Props = {
     players: Player[];
+    onPlayerSelect: (player: Player) => void;
   };
 
-export function OptionList( { players}: Props) {
+export function OptionList( { players, onPlayerSelect}: Props) {
     const [filter, setFilter] = useState("all");
 
     const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -31,15 +32,10 @@ export function OptionList( { players}: Props) {
     : players.filter((player) => player.position === filter);
 
     const groupedPlayers = filteredPlayers.reduce((acc, player) => {
-        // Kollar om det redan finns en grupp för den här positionen
         if (!acc[player.position]) {
-          // Om inte, skapa en ny grupp för den positionen
           acc[player.position] = [];
         }
-    
-        // Lägg till spelaren i rätt grupp
         acc[player.position].push(player);
-    
         return acc;
       }, {} as { [key: string]: Player[] });
 
@@ -85,7 +81,7 @@ export function OptionList( { players}: Props) {
           <div key={position}>
             <p>{position}s</p>
               {groupedPlayers[position].map((player) => (
-                <Player key={player.id} player={player}/>
+                <Player onPlayerSelect={onPlayerSelect} key={player.id} player={player}/>
               ))}
           </div>
         ))}

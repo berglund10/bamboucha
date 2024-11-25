@@ -1,3 +1,4 @@
+import { PlayerType } from "../types";
 
 type Props = {
     player: {
@@ -7,14 +8,17 @@ type Props = {
       number: number;
       position: string;
       photo: string;
-    }
+    },
+    onPlayerSelect: (player: PlayerType) => void;
 };
 
 
-export function Player({ player } : Props) {
+export function Player({ player, onPlayerSelect } : Props) {
     return (
        <>
-       <div>{player.name}</div>
+       <div
+       onClick={() => onPlayerSelect(player)}
+       >{player.name}</div>
        </>
     )
 }
