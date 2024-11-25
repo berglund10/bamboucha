@@ -60,7 +60,7 @@ export function PlayerBoard({ players }: Props) {
       alert("Must select exactly 11 players");
       return;
     }
-    redirect("/");
+    redirect("/match");
   };
 
   return (
