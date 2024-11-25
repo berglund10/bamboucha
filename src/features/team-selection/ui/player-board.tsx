@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { OptionList } from "./option-list";
+import { redirect } from 'next/navigation'
+
 
 type Player = {
   id: number;
@@ -53,6 +55,14 @@ export function PlayerBoard({ players }: Props) {
     setSelectedPlayers((prevPlayers) => [...prevPlayers, player]);
   };
 
+  const handleSelectEleven = () => {
+    if (selectedPlayers.length !== 11) {
+      alert("Must select exactly 11 players");
+      return;
+    }
+    redirect("/");
+  };
+
   return (
     <div className="flex flex-row border border-l-rose-700">
       <div className="flex flex-col border-lime-400">
@@ -63,14 +73,10 @@ export function PlayerBoard({ players }: Props) {
             </p>
           );
         })}
+        <button onClick={handleSelectEleven}>Select eleven</button>
       </div>
       <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center">
         <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
-        <input
-          type="text"
-          placeholder="Type here"
-          className="mt-4 input input-bordered w-full max-w-xs"
-        />
       </div>
     </div>
   );
