@@ -1,15 +1,47 @@
 "use client";
 
 import { useState } from "react";
+import { Player } from "./player";
 
-export function OptionList() {
+type Player = {
+    id: number;
+    name: string;
+    age: number;
+    number: number;
+    position: string;
+    photo: string;
+  };
+  
+  type Props = {
+    players: Player[];
+  };
+
+export function OptionList( { players}: Props) {
     const [filter, setFilter] = useState("all");
 
     const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const selectedFilter = event.target.value;
+        console.log(players)
         console.log(selectedFilter);
         setFilter(selectedFilter)
     };
+
+    const filteredPlayers = filter === 'all'
+    ? players
+    : players.filter((player) => player.position === filter);
+
+    const groupedPlayers = filteredPlayers.reduce((acc, player) => {
+        // Kollar om det redan finns en grupp för den här positionen
+        if (!acc[player.position]) {
+          // Om inte, skapa en ny grupp för den positionen
+          acc[player.position] = [];
+        }
+    
+        // Lägg till spelaren i rätt grupp
+        acc[player.position].push(player);
+    
+        return acc;
+      }, {} as { [key: string]: Player[] });
 
 
     return (
@@ -48,6 +80,16 @@ export function OptionList() {
                         <option value="Venezia">Venezia</option>
                     </optgroup>
                 </select>
+                <div>
+        {Object.keys(groupedPlayers).map((position) => (
+          <div key={position}>
+            <p>{position}s</p>
+              {groupedPlayers[position].map((player) => (
+                <Player key={player.id} player={player}/>
+              ))}
+          </div>
+        ))}
+      </div>
         </>
     )
 }

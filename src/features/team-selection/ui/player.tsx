@@ -3,9 +3,10 @@ type Props = {
     player: {
       id: number;
       name: string;
+      age: number;
       number: number;
-      position: 'goalkeeper' | 'defender' | 'midfielder' | 'forward';
-      points: number;
+      position: string;
+      photo: string;
     }
 };
 
@@ -13,7 +14,7 @@ type Props = {
 export function Player({ player } : Props) {
     return (
        <>
-       <p>My {player.name} is and my position is {player.position}</p>
+       <div>{player.name}</div>
        </>
     )
 }
