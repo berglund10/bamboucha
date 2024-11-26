@@ -48,6 +48,7 @@ export function FootballPitch({ lineupSlots }: Props) {
   };
 
   return (
+    <>
     <div
       className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center">
       {lineupSlots.map((slot, index) => {
@@ -98,5 +99,6 @@ export function FootballPitch({ lineupSlots }: Props) {
         );
       })}
     </div>
+    </>
   );
 }
