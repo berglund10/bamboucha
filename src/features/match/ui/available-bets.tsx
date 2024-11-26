@@ -14,6 +14,7 @@ export async function AvailableBets() {
             user_id={bet.user_id}
             amount={bet.amount}
             is_accepted={bet.is_accepted}
+            accepted_by_user={bet.accepted_by_user_id}
           />
         );
       })}

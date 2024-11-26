@@ -2,7 +2,7 @@ type Props = {
   user_id: number;
   amount: number;
   is_accepted: boolean;
-  accepted_by_user?: string;
+  accepted_by_user?: number | null ;
   onAccept?: () => void;
 };
 
