@@ -1,17 +1,21 @@
+"use client";
+
+import { acceptBetAction } from "../actions";
+
 type Props = {
   user_id: number;
   amount: number;
   is_accepted: boolean;
-  accepted_by_user?: number | null ;
-  onAccept?: () => void;
+  accepted_by_user?: number | null;
+  bet_id: number;
 };
 
-export async function Bet({
+export function Bet({
+  bet_id,
   user_id,
   amount,
   is_accepted,
   accepted_by_user,
-  onAccept,
 }: Props) {
   // Hämta riktig user när jag fixar med inloggning function
   const username = "Anton";
@@ -26,9 +30,9 @@ export async function Bet({
       ) : (
         <>
           <p>
-            Accept bet of {amount} by user: {username}
+            Accept bet of {amount} by user: {username} bet id: {bet_id}
           </p>
-          <button onClick={onAccept}>Accept Bet</button>
+          <button onClick={() => acceptBetAction(bet_id)}>Accept Bet</button>
         </>
       )}
     </>
