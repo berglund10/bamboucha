@@ -24,6 +24,10 @@ export const createService = (db: Db) => {
       .update(betsTable)
       .set({ is_accepted: true , accepted_by_user_id: user_id})
       .where(eq(betsTable.id, bet_id));
+    },
+    getBetById: async (bet_id: number) => {
+      const bet = await db.select().from(betsTable).where(eq(betsTable.id, bet_id));
+      return bet[0];
     }
   };
 };
