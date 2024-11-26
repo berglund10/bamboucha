@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { OptionList } from "./option-list";
-import { redirect } from "next/navigation";
 import { FootballPitch } from "./football-pitch";
 import { SaveStartingElevenAction } from "../actions";
 
