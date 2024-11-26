@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { OptionList } from "./option-list";
 import { redirect } from "next/navigation";
+import { FootballPitch } from "./football-pitch";
 
 type LineupSlot = {
   position: string;
@@ -80,8 +81,9 @@ export function PlayerBoard({ players }: Props) {
   };
 
   return (
-    <div className="flex flex-row border border-l-rose-700">
-      <div className="flex flex-col border-lime-400 w-1/2 p-4">
+    <div className="flex flex-row border border-l-rose-700 h-screen">
+      <FootballPitch/>
+      {/* <div className="flex flex-col border-lime-400 w-1/2 p-4">
         <h3 className="text-lg font-bold mb-4">Starting Eleven</h3>
         <div className="grid grid-cols-1 gap-2">
           {lineupSlots.map((slot, index) => (
@@ -110,9 +112,9 @@ export function PlayerBoard({ players }: Props) {
         >
           Select Eleven
         </button>
-      </div>
+      </div> */}
 
-      <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center">
+      <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
         <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
       </div>
     </div>

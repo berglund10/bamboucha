@@ -1,8 +1,6 @@
-export default async function Page() {
-  //const players = await teamSelectionService.fetchPlayersByTeam();
-
+export function FootballPitch() {
   return (
-    <div className="grid grid-rows-4 grid-cols-6 gap-4 bg-green-700 p-6 h-screen mx-auto max-w-md">
+    <div className="grid grid-rows-4 grid-cols-6 gap-4 bg-green-700 p-6 w-2/3">
       <div className="row-start-1 col-span-6 flex justify-center">
         <div className="bg-yellow-500 rounded-full w-12 h-12 flex items-center justify-center text-white">1</div>
       </div>
