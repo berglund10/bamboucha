@@ -8,11 +8,6 @@ export function AvailableBets() {
     }
     return(
         <div>
-            <ul>
-                <li><button>{antonsbet.myBet}</button></li>
-                <li><button>{antonsbet.myBet}</button></li>
-                <li><button>{antonsbet.myBet}</button></li>
-            </ul>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import { AvailableBets } from "@/features/match/ui/available-bets";
 import { CreateBet } from "@/features/match/ui/create-bet";
-import { teamSelectionService } from "@/features/team-selection/instance";
 
 export default async function Page() {
   const round = 1;
