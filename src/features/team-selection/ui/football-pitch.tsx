@@ -46,6 +46,30 @@ export function FootballPitch({ lineupSlots }: Props) {
           return null;
         }
 
+        const isGoalkeeper = slot.position === "Goalkeeper";
+        if (isGoalkeeper) {
+          return (
+            <div
+              key={index}
+              className="row-start-1 col-span-6 flex justify-center"
+            >
+              {slot.player ? (
+                <div className="rounded-full w-12 h-12 flex items-center justify-center">
+                  <img
+                    src={slot.player.photo}
+                    alt={slot.player.name}
+                    className="rounded-full w-12 h-12 object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-white">
+                  -
+                </div>
+              )}
+            </div>
+          );
+        }
+        
         return (
           <div
             key={index}
