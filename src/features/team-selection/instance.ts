@@ -1,3 +1,4 @@
+import { db } from "@/db/instance";
 import { createService } from "./service";
 
-export const teamSelectionService = createService();
+export const teamSelectionService = createService(db);
