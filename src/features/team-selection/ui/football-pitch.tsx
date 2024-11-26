@@ -49,9 +49,7 @@ export function FootballPitch({ lineupSlots }: Props) {
 
   return (
     <div
-      className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-cover bg-center"
-      style={{ backgroundImage: "url('/path/to/your/football-pitch.jpg')" }}
-    >
+      className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center">
       {lineupSlots.map((slot, index) => {
         const gridPosition = positionGrid[slot.position];
         const isGoalkeeper = slot.position === "Goalkeeper";
@@ -62,7 +60,7 @@ export function FootballPitch({ lineupSlots }: Props) {
             className="row-start-1 col-span-6 flex justify-center"
           >
             {slot.player ? (
-              <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center">
+              <div className="rounded-full w-12 h-12 flex items-center justify-center">
                 <img
                   src={slot.player.photo}
                   alt={slot.player.name}
@@ -70,7 +68,7 @@ export function FootballPitch({ lineupSlots }: Props) {
                 />
               </div>
             ) : (
-              <div className="bg-gray-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+              <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-white">
                 -
               </div>
             )}
@@ -83,7 +81,7 @@ export function FootballPitch({ lineupSlots }: Props) {
               className={`row-start-${gridPosition.row} col-start-${gridPosition.col} flex justify-center`}
             >
               {slot.player ? (
-                <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center">
+                <div className="rounded-full w-12 h-12 flex items-center justify-center">
                   <img
                     src={slot.player.photo}
                     alt={slot.player.name}
@@ -91,7 +89,7 @@ export function FootballPitch({ lineupSlots }: Props) {
                   />
                 </div>
               ) : (
-                <div className="bg-gray-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+                <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-white">
                   -
                 </div>
               )}
