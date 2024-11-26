@@ -49,37 +49,15 @@ export function FootballPitch({ lineupSlots }: Props) {
 
   return (
     <>
-    <div
-      className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center">
-      {lineupSlots.map((slot, index) => {
-        const gridPosition = positionGrid[slot.position];
-        const isGoalkeeper = slot.position === "Goalkeeper";
+      <div className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center">
+        {lineupSlots.map((slot, index) => {
+          const gridPosition = positionGrid[slot.position];
+          const isGoalkeeper = slot.position === "Goalkeeper";
 
-        return isGoalkeeper ? (
-          <div
-            key={index}
-            className="row-start-1 col-span-6 flex justify-center"
-          >
-            {slot.player ? (
-              <div className="rounded-full w-12 h-12 flex items-center justify-center">
-                <img
-                  src={slot.player.photo}
-                  alt={slot.player.name}
-                  className="rounded-full w-12 h-12 object-cover"
-                />
-              </div>
-            ) : (
-              <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-white">
-                -
-              </div>
-            )}
-          </div>
-        ) : (
-
-          gridPosition && (
+          return isGoalkeeper ? (
             <div
               key={index}
-              className={`row-start-${gridPosition.row} col-start-${gridPosition.col} flex justify-center`}
+              className="row-start-1 col-span-6 flex justify-center"
             >
               {slot.player ? (
                 <div className="rounded-full w-12 h-12 flex items-center justify-center">
@@ -95,10 +73,30 @@ export function FootballPitch({ lineupSlots }: Props) {
                 </div>
               )}
             </div>
-          )
-        );
-      })}
-    </div>
+          ) : (
+            gridPosition && (
+              <div
+                key={index}
+                className={`row-start-${gridPosition.row} col-start-${gridPosition.col} flex justify-center`}
+              >
+                {slot.player ? (
+                  <div className="rounded-full w-12 h-12 flex items-center justify-center">
+                    <img
+                      src={slot.player.photo}
+                      alt={slot.player.name}
+                      className="rounded-full w-12 h-12 object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="bg-white rounded-full w-12 h-12 flex items-center justify-center text-white">
+                    -
+                  </div>
+                )}
+              </div>
+            )
+          );
+        })}
+      </div>
     </>
   );
 }

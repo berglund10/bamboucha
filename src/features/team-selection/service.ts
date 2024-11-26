@@ -3,7 +3,7 @@ import { startingLineupTable } from "./schema";
 import { PlayerType } from "./types";
 import { and, eq } from "drizzle-orm";
 
-export const createService = (db:Db) => {
+export const createService = (db: Db) => {
   return {
     fetchPlayersByPosition: async (position: string) => {
       try {
@@ -52,20 +52,27 @@ export const createService = (db:Db) => {
       return [];
     },
     addStartingLineup: async (rawData: any) => {
-      console.log(rawData)
-      const lineup = await db.insert(startingLineupTable).values(rawData).returning();
+      console.log(rawData);
+      const lineup = await db
+        .insert(startingLineupTable)
+        .values(rawData)
+        .returning();
       return lineup[0];
     },
-    getStartingLineupByIdAndRound: async(user_id: number, round_id: number) => {
-      const lineup = await db.select()
-      .from(startingLineupTable)
-      .where(
-        and(
-          eq(startingLineupTable.user_id, user_id),
-          eq(startingLineupTable.round_id, round_id),
-        ),
-      );
+    getStartingLineupByIdAndRound: async (
+      user_id: number,
+      round_id: number,
+    ) => {
+      const lineup = await db
+        .select()
+        .from(startingLineupTable)
+        .where(
+          and(
+            eq(startingLineupTable.user_id, user_id),
+            eq(startingLineupTable.round_id, round_id),
+          ),
+        );
       return lineup;
-    }
+    },
   };
 };

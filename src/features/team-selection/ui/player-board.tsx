@@ -77,20 +77,20 @@ export function PlayerBoard({ players }: Props) {
       alert("Must select exactly 11 players.");
       return;
     }
-    
-    console.log(filledSlots)
-    SaveStartingElevenAction(1,filledSlots);
+
+    console.log(filledSlots);
+    SaveStartingElevenAction(1, filledSlots);
   };
 
   return (
     <>
-    <div className="flex flex-row border border-l-rose-700 h-screen">
-      <FootballPitch lineupSlots={lineupSlots} />
-      <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
-        <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
+      <div className="flex flex-row border border-l-rose-700 h-screen">
+        <FootballPitch lineupSlots={lineupSlots} />
+        <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
+          <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
+        </div>
       </div>
-    </div>
-    <button onClick={handleSelectEleven}>Test</button>
+      <button onClick={handleSelectEleven}>Test</button>
     </>
   );
 }

@@ -14,9 +14,9 @@
   }
 }
 
-.bg-image { 
-  background-image: url('/football-pitch2.jpg'); 
-  background-size: cover; 
+.bg-image {
+  background-image: url("/football-pitch2.jpg");
+  background-size: cover;
   background-position: center;
 }
 

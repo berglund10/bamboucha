@@ -9,11 +9,11 @@ export default async function Page() {
 
   return (
     <>
-    <div>
-      <h1>Place bets</h1>
-      <AvailableBets/>
-      <CreateBet/>
-    </div>
+      <div>
+        <h1>Available bets</h1>
+        <AvailableBets />
+        <CreateBet />
+      </div>
     </>
   );
 }
