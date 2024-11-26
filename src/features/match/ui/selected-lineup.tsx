@@ -14,9 +14,10 @@ type Player = {
   
   type Props = {
     players: Player[];
+    className?: string;
   };
   
-  export function SelectedLineup({ players }: Props) {
+  export function SelectedLineup({ players, className }: Props) {
     const positionGrid: PositionGrid = {
       Goalkeeper: { row: 1, col: 3 },
       Defender1: { row: 2, col: 2 },
@@ -36,7 +37,7 @@ type Player = {
     }
   
     return (
-      <div className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/4 bg-image bg-cover bg-center">
+      <div className={`grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/4 bg-image bg-cover bg-center ${className}`}>
         {players.map((player, index) => {
           const positionKey = Object.keys(positionGrid)[index]; // Hämta positionen i ordning
           const gridPosition = positionGrid[positionKey];
@@ -55,7 +56,7 @@ type Player = {
               }}
               className="flex justify-center"
             >
-              <div className="rounded-full w-12 h-12 flex items-center justify-center">
+              <div className={`rounded-full w-12 h-12 flex items-center justify-center ${className}`}>
                 <img
                   src={player.photo}
                   alt={player.name}
