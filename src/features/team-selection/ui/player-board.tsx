@@ -4,6 +4,7 @@ import { useState } from "react";
 import { OptionList } from "./option-list";
 import { redirect } from "next/navigation";
 import { FootballPitch } from "./football-pitch";
+import { SaveStartingElevenAction } from "../actions";
 
 type LineupSlot = {
   position: string;
@@ -77,16 +78,20 @@ export function PlayerBoard({ players }: Props) {
       alert("Must select exactly 11 players.");
       return;
     }
-
-    redirect("/match");
+    
+    console.log(filledSlots)
+    SaveStartingElevenAction(1,filledSlots);
   };
 
   return (
+    <>
     <div className="flex flex-row border border-l-rose-700 h-screen">
       <FootballPitch lineupSlots={lineupSlots} />
       <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
         <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
       </div>
     </div>
+    <button onClick={handleSelectEleven}>Test</button>
+    </>
   );
 }
