@@ -1,42 +1,96 @@
-export function FootballPitch() {
-  return (
-    <div className="grid grid-rows-4 grid-cols-6 gap-4 bg-green-700 p-6 w-2/3">
-      <div className="row-start-1 col-span-6 flex justify-center">
-        <div className="bg-yellow-500 rounded-full w-12 h-12 flex items-center justify-center text-white">1</div>
+type Player = {
+    id: number;
+    name: string;
+    age: number;
+    number: number;
+    position: string;
+    photo: string;
+  };
+  
+  type LineupSlot = {
+    position: string;
+    player: Player | null;
+  };
+  
+  type PositionGrid = {
+    [key: string]: { row: number; col: number };
+    Goalkeeper: { row: 1; col: 3 };
+    Defender1: { row: 2; col: 2 };
+    Defender2: { row: 2; col: 3 };
+    Defender3: { row: 2; col: 4 };
+    Defender4: { row: 2; col: 5 };
+    Midfielder1: { row: 3; col: 2 };
+    Midfielder2: { row: 3; col: 3 };
+    Midfielder3: { row: 3; col: 4 };
+    Midfielder4: { row: 3; col: 5 };
+    Attacker1: { row: 4; col: 3 };
+    Attacker2: { row: 4; col: 4 };
+  };
+  
+  type Props = {
+    lineupSlots: LineupSlot[];
+  };
+  
+  export function FootballPitch({ lineupSlots }: Props) {
+    const positionGrid: PositionGrid = {
+        Goalkeeper: { row: 1, col: 3 },
+        Defender1: { row: 2, col: 2 },
+        Defender2: { row: 2, col: 3 },
+        Defender3: { row: 2, col: 4 },
+        Defender4: { row: 2, col: 5 },
+        Midfielder1: { row: 3, col: 2 },
+        Midfielder2: { row: 3, col: 3 },
+        Midfielder3: { row: 3, col: 4 },
+        Midfielder4: { row: 3, col: 5 },
+        Attacker1: { row: 4, col: 3 },
+        Attacker2: { row: 4, col: 4 },
+      };
+  
+    return (
+      <div
+        className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-cover bg-center"
+        style={{ backgroundImage: "url('/path/to/your/football-pitch.jpg')" }}
+      >
+        {lineupSlots.map((slot, index) => {
+          const gridPosition = positionGrid[slot.position];
+          const isGoalkeeper = slot.position === "Goalkeeper";
+  
+          return isGoalkeeper ? (
+            <div
+              key={index}
+              className="row-start-1 col-span-6 flex justify-center"
+            >
+              {slot.player ? (
+                <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+                  {slot.player.number}
+                </div>
+              ) : (
+                <div className="bg-gray-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+                  -
+                </div>
+              )}
+            </div>
+          ) : (
+            
+            gridPosition && (
+              <div
+                key={index}
+                className={`row-start-${gridPosition.row} col-start-${gridPosition.col} flex justify-center`}
+              >
+                {slot.player ? (
+                  <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+                    {slot.player.number}
+                  </div>
+                ) : (
+                  <div className="bg-gray-500 rounded-full w-12 h-12 flex items-center justify-center text-white">
+                    -
+                  </div>
+                )}
+              </div>
+            )
+          );
+        })}
       </div>
-
-      <div className="row-start-2 col-start-2 flex justify-center">
-        <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">2</div>
-      </div>
-      <div className="row-start-2 col-start-3 flex justify-center">
-        <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">3</div>
-      </div>
-      <div className="row-start-2 col-start-4 flex justify-center">
-        <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">4</div>
-      </div>
-      <div className="row-start-2 col-start-5 flex justify-center">
-        <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-white">5</div>
-      </div>
-
-      <div className="row-start-3 col-start-2 flex justify-center">
-        <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center text-white">6</div>
-      </div>
-      <div className="row-start-3 col-start-3 flex justify-center">
-        <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center text-white">7</div>
-      </div>
-      <div className="row-start-3 col-start-4 flex justify-center">
-        <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center text-white">8</div>
-      </div>
-      <div className="row-start-3 col-start-5 flex justify-center">
-        <div className="bg-red-500 rounded-full w-12 h-12 flex items-center justify-center text-white">8</div>
-      </div>
-
-      <div className="row-start-4 col-start-3 flex justify-center">
-        <div className="bg-purple-500 rounded-full w-12 h-12 flex items-center justify-center text-white">9</div>
-      </div>
-      <div className="row-start-4 col-start-4 flex justify-center">
-        <div className="bg-purple-500 rounded-full w-12 h-12 flex items-center justify-center text-white">10</div>
-      </div>
-    </div>
-  );
-}
+    );
+  }
+  

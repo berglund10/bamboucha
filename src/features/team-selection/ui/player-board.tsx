@@ -26,16 +26,16 @@ type Props = {
 export function PlayerBoard({ players }: Props) {
   const [lineupSlots, setLineupSlots] = useState<LineupSlot[]>([
     { position: "Goalkeeper", player: null },
-    { position: "Defender", player: null },
-    { position: "Defender", player: null },
-    { position: "Defender", player: null },
-    { position: "Defender", player: null },
-    { position: "Midfielder", player: null },
-    { position: "Midfielder", player: null },
-    { position: "Midfielder", player: null },
-    { position: "Midfielder", player: null },
-    { position: "Attacker", player: null },
-    { position: "Attacker", player: null },
+    { position: "Defender1", player: null },
+    { position: "Defender2", player: null },
+    { position: "Defender3", player: null },
+    { position: "Defender4", player: null },
+    { position: "Midfielder1", player: null },
+    { position: "Midfielder2", player: null },
+    { position: "Midfielder3", player: null },
+    { position: "Midfielder4", player: null },
+    { position: "Attacker1", player: null },
+    { position: "Attacker2", player: null },
   ]);
 
   const handlePlayerSelect = (player: Player) => {
@@ -52,7 +52,8 @@ export function PlayerBoard({ players }: Props) {
     }
 
     const firstAvailableSlotIndex = lineupSlots.findIndex(
-      (slot) => slot.position === player.position && slot.player === null,
+      (slot) =>
+        slot.position.startsWith(player.position) && slot.player === null,
     );
 
     if (firstAvailableSlotIndex === -1) {
@@ -76,44 +77,13 @@ export function PlayerBoard({ players }: Props) {
       alert("Must select exactly 11 players.");
       return;
     }
-    
-    redirect("/match")
+
+    redirect("/match");
   };
 
   return (
     <div className="flex flex-row border border-l-rose-700 h-screen">
-      <FootballPitch/>
-      {/* <div className="flex flex-col border-lime-400 w-1/2 p-4">
-        <h3 className="text-lg font-bold mb-4">Starting Eleven</h3>
-        <div className="grid grid-cols-1 gap-2">
-          {lineupSlots.map((slot, index) => (
-            <div
-              key={index}
-              className="border border-gray-500 p-2 flex justify-between"
-            >
-              <div>
-                <strong>{slot.position}</strong>
-              </div>
-              <div>
-                {slot.player ? (
-                  <span>
-                    {slot.player.name} (#{slot.player.number})
-                  </span>
-                ) : (
-                  <span className="text-gray-400">Empty</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={handleSelectEleven}
-          className="mt-4 p-2 bg-blue-500 text-white"
-        >
-          Select Eleven
-        </button>
-      </div> */}
-
+      <FootballPitch lineupSlots={lineupSlots} />
       <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
         <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
       </div>
