@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { acceptBetAction } from "../actions";
 
 type Props = {
@@ -18,15 +20,20 @@ export function Bet({
   accepted_by_user,
 }: Props) {
   // Hämta riktig user när jag fixar med inloggning function
-  const username = "Anton";
+  const username = "Hubbe";
 
   return (
     <>
       {is_accepted ? (
-        <p>
-          Bet of {amount} has been accepted by{" "}
-          {accepted_by_user || "Unknown user"}.
-        </p>
+        <>
+          <p>
+            Bet of {amount} has been accepted by{" "}
+            {accepted_by_user || "Unknown user"}.
+          </p>
+          <Link href={`/match/show?id=${bet_id}`}>
+            <button>Show match</button>
+          </Link>
+        </>
       ) : (
         <>
           <p>
