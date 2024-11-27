@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+
 export async function NavBar() {
   return (
     <>
@@ -29,19 +32,32 @@ export async function NavBar() {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Homepage</a>
+              <Link href={`/`}>
+                <p>Home</p>
+                </Link>
               </li>
               <li>
-                <a>Portfolio</a>
+              <Link href={`/research`}>
+                <p>Research</p>
+                </Link>
               </li>
               <li>
-                <a>About</a>
+              <Link href={`/team-selection`}>
+                <p>Select team</p>
+                </Link>
+              </li> 
+              <li>
+              <Link href={`/match`}>
+                <p>Match</p>
+                </Link>
               </li> 
             </ul>
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">NYTT NAMN SEN</a>
+        <Link href={`/`}>
+          <p className="btn btn-ghost text-xl">BAMBOUCHA</p>
+                </Link>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
