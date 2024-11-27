@@ -1,3 +1,5 @@
 export default async function Page() {
-  return <></>;
+  return <div className="flex justify-center">
+  User 1 won!  
+  </div>;
 }

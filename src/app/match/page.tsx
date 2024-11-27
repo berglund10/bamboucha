@@ -9,8 +9,7 @@ export default async function Page() {
 
   return (
     <>
-      <div>
-        <h1>Available bets</h1>
+      <div className="flex flex-col items-center space-y-2">
         <AvailableBets />
         <CreateBet />
       </div>
