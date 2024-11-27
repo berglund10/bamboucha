@@ -13,6 +13,6 @@ export default {
   },
   plugins: [daisyui],
   daisyui: {
-    themes: ["retro"],
+    themes: ["synthwave"],
   },
 } satisfies Config;
