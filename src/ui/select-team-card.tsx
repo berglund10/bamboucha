@@ -7,7 +7,7 @@ export async function SelectTeamCard() {
       <>          
       <Link href={`/team-selection`}>
         <div
-          className="card bg-white w-96 ml-4 shadow-md transition-transform duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
+          className="card w-96 ml-4 shadow-md transition-transform duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
         >
           <figure className="px-10 pt-10">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-12">
