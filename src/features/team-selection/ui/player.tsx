@@ -16,7 +16,7 @@ export function Player({ player, onPlayerSelect }: Props) {
   return (
     <>
       <div
-        className="font-mono ml-12 mb-1"
+        className="font-mono ml-4 mb-1"
         onClick={() => onPlayerSelect(player)}
       >
         {player.name}

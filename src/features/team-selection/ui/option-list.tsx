@@ -45,6 +45,7 @@ export function OptionList({ players, onPlayerSelect }: Props) {
 
   return (
     <>
+      <div className="flex flex-col border-4 border-white ml-auto w-96 items-center overflow-auto">
       <label className="mb-4 mt-4 font-mono" htmlFor="filter">
         Select players
       </label>
@@ -89,7 +90,7 @@ export function OptionList({ players, onPlayerSelect }: Props) {
       <div>
         {Object.keys(groupedPlayers).map((position) => (
           <div key={position}>
-            <p className="font-mono mt-2 border border-l-amber-600 bg-white w-96 text-center h-10 leading-10">
+            <p className="font-mono mt-2 bg-white w-96 text-center h-10 leading-10">
               {position}s
             </p>
             {groupedPlayers[position].map((player) => (
@@ -101,6 +102,7 @@ export function OptionList({ players, onPlayerSelect }: Props) {
             ))}
           </div>
         ))}
+      </div>
       </div>
     </>
   );
