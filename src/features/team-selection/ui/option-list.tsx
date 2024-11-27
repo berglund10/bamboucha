@@ -90,7 +90,7 @@ export function OptionList({ players, onPlayerSelect }: Props) {
       <div>
         {Object.keys(groupedPlayers).map((position) => (
           <div key={position}>
-            <p className="font-mono mt-2 bg-white w-96 text-center h-10 leading-10">
+            <p className="font-mono mt-2 bg-white w-96 text-black text-center h-10 leading-10">
               {position}s
             </p>
             {groupedPlayers[position].map((player) => (
