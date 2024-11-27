@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 /* eslint-disable @next/next/no-img-element */
 export async function StudyCard() {
     return (
       <>
+      <Link href={`/research`}>
         <div
           className="card bg-white w-96 shadow-md transition-transform duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer"
         >
@@ -29,6 +32,7 @@ export async function StudyCard() {
             </p>
           </div>
         </div>
+        </Link>
       </>
     );
   }
