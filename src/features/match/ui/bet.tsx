@@ -23,25 +23,39 @@ export function Bet({
   const username = "Hubbe";
 
   return (
-    <>
-      {is_accepted ? (
-        <>
-          <p>
-            Bet of {amount} has been accepted by{" "}
-            {accepted_by_user || "Unknown user"}.
-          </p>
-          <Link href={`/match/show?id=${bet_id}`}>
-            <button>Show match</button>
-          </Link>
-        </>
-      ) : (
-        <>
-          <p>
-            Accept bet of {amount} by user: {username} bet id: {bet_id}
-          </p>
-          <button onClick={() => acceptBetAction(bet_id)}>Accept Bet</button>
-        </>
-      )}
-    </>
+    <div className="card bg-base-100 shadow-md w-full max-w-md">
+      <div className="card-body">
+        {is_accepted ? (
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-sm">
+              Bet of <span className="font-bold">{amount} kr</span> has been
+              accepted by{" "}
+              <span className="font-bold">
+                {accepted_by_user ? `User ${accepted_by_user}` : "Unknown user"}
+              </span>
+              .
+            </p>
+            <Link href={`/match/show?id=${bet_id}`} className="w-full">
+              <button className="btn btn-primary w-full h-12 text-center">
+                Show Match
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center space-y-4">
+            <p className="text-sm">
+              Bet of <span className="font-bold">{amount} kr</span>, created by{" "}
+              <span className="font-bold">{username}</span>. (Bet ID: {bet_id})
+            </p>
+            <button
+              className="btn btn-secondary w-full h-12 text-center"
+              onClick={() => acceptBetAction(bet_id)}
+            >
+              Accept
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
