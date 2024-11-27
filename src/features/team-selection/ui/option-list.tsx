@@ -45,11 +45,11 @@ export function OptionList({ players, onPlayerSelect }: Props) {
 
   return (
     <>
-      <label className="mb-4 mt-4" htmlFor="filter">
+      <label className="mb-4 mt-4 font-mono" htmlFor="filter">
         Select players
       </label>
       <select
-        className="select select-bordered w-full max-w-xs"
+        className="select select-bordered w-full max-w-xs font-mono"
         id="filter"
         value={filter}
         onChange={handleFilterChange}
@@ -89,7 +89,9 @@ export function OptionList({ players, onPlayerSelect }: Props) {
       <div>
         {Object.keys(groupedPlayers).map((position) => (
           <div key={position}>
-            <p>{position}s</p>
+            <p className="font-mono mt-2 border border-l-amber-600 bg-white w-96 text-center h-10 leading-10">
+              {position}s
+            </p>
             {groupedPlayers[position].map((player) => (
               <Player
                 onPlayerSelect={onPlayerSelect}

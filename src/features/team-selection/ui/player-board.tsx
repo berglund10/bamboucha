@@ -86,7 +86,7 @@ export function PlayerBoard({ players }: Props) {
     <>
       <div className="flex flex-row border border-l-rose-700 h-screen">
         <FootballPitch lineupSlots={lineupSlots} />
-        <div className="flex flex-col border border-blue-600 ml-auto w-96 items-center overflow-auto">
+        <div className="flex flex-col border border-black ml-auto w-96 items-center overflow-auto">
           <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
         </div>
       </div>

@@ -13,7 +13,6 @@ export const placeBetAction = async (formData: FormData) => {
 };
 
 export const acceptBetAction = async (bet_id: number) => {
-
   const user_id = 1;
   console.log("user?");
 
@@ -22,4 +21,3 @@ export const acceptBetAction = async (bet_id: number) => {
   revalidatePath("/match");
   //redirect("/match");
 };
-

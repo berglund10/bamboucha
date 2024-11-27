@@ -1,7 +1,15 @@
-export default function Home() {
+import { BetsCard } from "@/ui/bets-card";
+import { SelectTeamCard } from "@/ui/select-team-card";
+import { StudyCard } from "@/ui/study-card";
+
+export default async function Home() {
   return (
     <>
-      <h1>Welcome to bamboucha</h1>
+      <div className="flex flex-row justify-center mt-24">
+        <StudyCard />
+        <SelectTeamCard />
+        <BetsCard />
+      </div>
     </>
   );
 }

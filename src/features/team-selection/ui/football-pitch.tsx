@@ -69,7 +69,7 @@ export function FootballPitch({ lineupSlots }: Props) {
             </div>
           );
         }
-        
+
         return (
           <div
             key={index}
