@@ -37,7 +37,7 @@ export function FootballPitch({ lineupSlots }: Props) {
   };
 
   return (
-    <div className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center">
+    <div className="grid grid-rows-4 grid-cols-6 gap-4 p-6 w-2/3 bg-image bg-cover bg-center mb-20">
       {lineupSlots.map((slot, index) => {
         const gridPosition = positionGrid[slot.position];
 
