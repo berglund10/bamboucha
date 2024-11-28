@@ -14,8 +14,7 @@ export function CreateBet() {
             <input
               type="text"
               name="amount"
-              placeholder="Type here"
-              className="input input-bordered"
+              className="w-96 input input-bordered"
             />
             <button type="submit" className="btn">
               Create
