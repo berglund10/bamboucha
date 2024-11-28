@@ -31,8 +31,6 @@ export default async function Page({
         betAccepterLineup.some(lineup => lineup.player_id === player.id)
     );
 
-  //console.log(filteredPlayers.length);
-
   return (
     <div className="flex flex-col items-center">
       Match info {id} Your opponent lineup
