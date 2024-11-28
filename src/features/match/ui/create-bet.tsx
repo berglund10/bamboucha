@@ -8,7 +8,7 @@ export function CreateBet() {
   return (
     <div className="w-96">
       <form action={placeBetAction}>
-        <label className="block">
+        <label className="block mt-4">
           <span className="label-text">How much do you want to bet?</span>
           <div className="flex items-center space-x-2 mt-2">
             <input

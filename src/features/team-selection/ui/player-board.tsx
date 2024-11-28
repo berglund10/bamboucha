@@ -4,6 +4,7 @@ import { useState } from "react";
 import { OptionList } from "./option-list";
 import { FootballPitch } from "./football-pitch";
 import { SaveStartingElevenAction } from "../actions";
+import toast, { Toaster } from "react-hot-toast";
 
 type LineupSlot = {
   position: string;
@@ -57,9 +58,7 @@ export function PlayerBoard({ players }: Props) {
     );
 
     if (firstAvailableSlotIndex === -1) {
-      alert(
-        `No available slots for ${player.position}. Please remove a player first.`,
-      );
+      toast.error(`No available slots for ${player.position}. Please remove a player first.`)
       return;
     }
 
@@ -74,7 +73,7 @@ export function PlayerBoard({ players }: Props) {
     const filledSlots = lineupSlots.filter((slot) => slot.player !== null);
 
     if (filledSlots.length !== 11) {
-      alert("Must select exactly 11 players.");
+      toast.error('Must select exactly 11 players.')
       return;
     }
 
@@ -84,6 +83,7 @@ export function PlayerBoard({ players }: Props) {
 
   return (
     <>
+    <div><Toaster/></div>
       <div className="flex flex-row border border-l-rose-700 h-screen">
         <FootballPitch lineupSlots={lineupSlots} />
         <div className="flex flex-col ml-auto w-96 items-center overflow-auto">
