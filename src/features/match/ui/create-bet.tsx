@@ -6,7 +6,7 @@ export function CreateBet() {
   //Uppdatera en state i parent/available-bets? Kanske revalidate(path/)
 
   return (
-    <div>
+    <div className="w-96">
       <form action={placeBetAction}>
         <label className="block">
           <span className="label-text">How much do you want to bet?</span>

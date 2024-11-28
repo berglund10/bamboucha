@@ -8,7 +8,7 @@ export default async function Page() {
 
   return (
     <>
-      <Deadline />
+      {/* <Deadline /> */}
       <PlayerBoard players={players} />
     </>
   );

@@ -2,34 +2,34 @@
 export async function Rules() {
     return (
         <>
-            <p className="text-2xl text-center mb-2 mt-2">Rules</p>
-            <div className="collapse bg-base-200 collapse-arrow w-96">
+            <p className="text-2xl text-center mb-2 mt-4">Rules</p>
+            <div className="collapse bg-base-200 collapse-arrow w-full">
                 <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium">How points are awarded</div>
                 <div className="collapse-content">
-                    <p>
-                        For playing up to 60 minutes: 1<br />
-                        For playing 60 minutes or more (excluding stoppage time): 2<br />
-                        For each goal scored by a goalkeeper: 10<br />
-                        For each goal scored by a defender: 6<br />
-                        For each goal scored by a midfielder: 5<br />
-                        For each goal scored by a forward: 4<br />
-                        For each goal assist: 3<br />
-                        For a clean sheet by a goalkeeper or defender: 4<br />
-                        For a clean sheet by a midfielder: 1<br />
-                        For every 3 shot saves by a goalkeeper: 1<br />
-                        For each penalty save: 5<br />
-                        For each penalty miss: -2<br />
-                        Bonus points for the best players in a match: 1-3<br />
-                        For every 2 goals conceded by a goalkeeper or defender: -1<br />
-                        For each yellow card: -1<br />
-                        For each red card: -3<br />
-                        For each own goal: -2
-                    </p>
+                <ul>
+                        <li>For playing up to 60 minutes: 1</li>
+                        <li>For playing 60 minutes or more (excluding stoppage time): 2</li>
+                        <li>For each goal scored by a goalkeeper: 10</li>
+                        <li>For each goal scored by a defender: 6</li>
+                        <li>For each goal scored by a midfielder: 5</li>
+                        <li>For each goal scored by a forward: 4</li>
+                        <li>For each goal assist: 3</li>
+                        <li>For a clean sheet by a goalkeeper or defender: 4</li>
+                        <li>For a clean sheet by a midfielder: 1</li>
+                        <li>For every 3 shot saves by a goalkeeper: 1</li>
+                        <li>For each penalty save: 5</li>
+                        <li>For each penalty miss: -2</li>
+                        <li>Bonus points for the best players in a match: 1-3</li>
+                        <li>For every 2 goals conceded by a goalkeeper or defender: -1</li>
+                        <li>For each yellow card: -1</li>
+                        <li>For each red card: -3</li>
+                        <li>For each own goal: -2</li>
+                    </ul>
                 </div>
             </div>
 
-            <div className="collapse bg-base-200 w-96 collapse-arrow">
+            <div className="collapse bg-base-200 w-full collapse-arrow">
                 <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium">Can I have more than one lineup?</div>
                 <div className="collapse-content">
@@ -37,7 +37,7 @@ export async function Rules() {
                 </div>
             </div>
 
-            <div className="collapse bg-base-200 w-96 collapse-arrow">
+            <div className="collapse bg-base-200 w-full collapse-arrow">
                 <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium">How many bets can I create per round?</div>
                 <div className="collapse-content">

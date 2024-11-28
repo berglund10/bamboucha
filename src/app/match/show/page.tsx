@@ -16,31 +16,30 @@ export default async function Page({
   const betCreatorLineup =
     await teamSelectionService.getStartingLineupByIdAndRound(user_id, 1);
 
-  //const juventus = await teamSelectionService.fetchPlayersByTeam();
+  const juventus = await teamSelectionService.fetchPlayersByTeam();
   const betAccepterLineup =
     await teamSelectionService.getStartingLineupByIdAndRound(
       accepted_by_user_id,
       1,
     );
 
-  /*     const filteredPlayers = juventus.filter(player =>
+  const filteredPlayers = juventus.filter(player =>
         betCreatorLineup.some(lineup => lineup.player_id === player.id)
     );
 
     const filteredPlayers2 = juventus.filter(player =>
         betAccepterLineup.some(lineup => lineup.player_id === player.id)
     );
- */
 
   //console.log(filteredPlayers.length);
 
   return (
     <div className="flex flex-col items-center">
       Match info {id} Your opponent lineup
-      {/*             <SelectedLineup players={filteredPlayers} />
+            <SelectedLineup players={filteredPlayers} />
             <p>Your lineup</p>
             <SelectedLineup className="rotate-180" players={filteredPlayers2} />
-            <ShowWinner bet_id={Number(id)}/> */}
+            <ShowWinner bet_id={Number(id)}/>
     </div>
   );
 }
