@@ -15,9 +15,10 @@ type Player = {
 type Props = {
   players: Player[];
   onPlayerSelect: (player: Player) => void;
+  onHandleSelectEleven: () => void;
 };
 
-export function OptionList({ players, onPlayerSelect }: Props) {
+export function OptionList({ players, onPlayerSelect, onHandleSelectEleven }: Props) {
   const [filter, setFilter] = useState("all");
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -103,6 +104,8 @@ export function OptionList({ players, onPlayerSelect }: Props) {
           </div>
         ))}
       </div>
+      <button onClick={onHandleSelectEleven} className="font-mono mt-2 bg-white w-96 text-black text-center h-10 leading-10">
+        Select eleven</button>
       </div>
     </>
   );

@@ -58,7 +58,7 @@ export function PlayerBoard({ players }: Props) {
     );
 
     if (firstAvailableSlotIndex === -1) {
-      toast.error(`No available slots for ${player.position}. Please remove a player first.`)
+      toast.error(`No available slots for ${player.position}s. Please remove a player first.`)
       return;
     }
 
@@ -81,17 +81,18 @@ export function PlayerBoard({ players }: Props) {
     SaveStartingElevenAction(2, filledSlots);
   };
 
+  const callhandleSelectEleven = () => {
+    handleSelectEleven();
+  }
+
   return (
     <>
     <div><Toaster/></div>
       <div className="flex flex-row border border-l-rose-700 h-screen">
         <FootballPitch lineupSlots={lineupSlots} />
         <div className="flex flex-col ml-auto w-96 items-center overflow-auto">
-          <OptionList onPlayerSelect={handlePlayerSelect} players={players} />
+          <OptionList onHandleSelectEleven={callhandleSelectEleven} onPlayerSelect={handlePlayerSelect} players={players} />
         </div>
-      </div>
-      <div className="flex flex-row justify-center mt-4">
-      <button className="btn text-white" onClick={handleSelectEleven}>Select eleven</button>
       </div>
     </>
   );
