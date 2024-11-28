@@ -49,6 +49,27 @@ export function SelectedLineup({ players, className }: Props) {
           return null;
         }
 
+        const isGoalkeeper = player.position === "Goalkeeper";
+        
+        if (isGoalkeeper) {
+          return (
+            <div
+              key={player.id}
+              className="row-start-1 col-span-6 flex justify-center"
+            >
+              <div
+                className={`rounded-full w-12 h-12 flex items-center justify-center ${className}`}
+              >
+                <img
+                  src={player.photo}
+                  alt={player.name}
+                  className="rounded-full w-12 h-12 object-cover"
+                />
+              </div>
+            </div>
+          );
+        }
+
         return (
           <div
             key={player.id}
