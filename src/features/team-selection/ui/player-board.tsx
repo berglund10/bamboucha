@@ -78,7 +78,7 @@ export function PlayerBoard({ players }: Props) {
     }
 
     console.log(filledSlots);
-    SaveStartingElevenAction(2, filledSlots);
+    SaveStartingElevenAction(1, filledSlots);
   };
 
   const callhandleSelectEleven = () => {
